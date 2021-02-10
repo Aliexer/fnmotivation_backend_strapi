@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article",
+  "info": {
+    "name": "article",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "intro": {
+      "type": "richtext"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string"
+    },
+    "likes": {
+      "type": "integer",
+      "default": 0
+    },
+    "outer": {
+      "type": "boolean"
+    },
+    "outer_image": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "outer_url": {
+      "type": "string"
+    },
+    "show_share_popup": {
+      "type": "boolean"
+    },
+    "article_author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "articles"
+    },
+    "article_category": {
+      "model": "article-category",
+      "via": "articles"
+    },
+    "thumb": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "comment": {
+      "collection": "comment",
+      "via": "article"
+    }
+  }
+}

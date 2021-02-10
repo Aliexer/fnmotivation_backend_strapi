@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscribe_category",
+  "info": {
+    "name": "SubscribeCategory"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "user_id": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
+    },
+    "category_id": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "sub_categories"
+    }
+  }
+}

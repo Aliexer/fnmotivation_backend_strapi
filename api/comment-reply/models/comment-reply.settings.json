@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comment_reply",
+  "info": {
+    "name": "Comment Reply",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "comment": {
+      "model": "comment",
+      "via": "comment_replies"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "comment_replies"
+    },
+    "author_name": {
+      "type": "string"
+    },
+    "author_avatar": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

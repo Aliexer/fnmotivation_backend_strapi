@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article-tags",
+  "info": {
+    "name": "Article Tags",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "article_id": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
